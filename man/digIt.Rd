@@ -2,7 +2,7 @@
 \alias{digIt}
 %- Also NEED an '\alias' for EACH other topic documented here.
 \title{
-Simple tools to access new data sets for data science
+digIt() for accessing and importing data
 }
 \description{
 Most example datasets available for statistics and data science are overly simplified. This wrapper provides access to a curated set of more complex data.

@@ -2,10 +2,10 @@
 \alias{digList}
 %- Also NEED an '\alias' for EACH other topic documented here.
 \title{
-%%  ~~function to do ... ~~
+digList - get available datasets
 }
 \description{
-%%  ~~ A concise (1-5 lines) description of what the function does. ~~
+Returns list of available datasets
 }
 \usage{
 digList(detail = FALSE)
