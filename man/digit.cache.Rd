@@ -2,10 +2,10 @@
 \alias{digit.cache}
 \docType{data}
 \title{
-%%   ~~ data name/kind ... ~~
+ placeholder goes here
 }
 \description{
-%%  ~~ A concise (1-5 lines) description of the dataset. ~~
+ placeholder goes here
 }
 \usage{data("digit.cache")}
 \format{
