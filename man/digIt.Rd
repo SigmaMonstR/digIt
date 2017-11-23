@@ -2,10 +2,11 @@
 \alias{digIt}
 %- Also NEED an '\alias' for EACH other topic documented here.
 \title{
-%%  ~~function to do ... ~~
+Simple tools to access new data sets for data science
 }
 \description{
-%%  ~~ A concise (1-5 lines) description of what the function does. ~~
+Most example datasets available for statistics and data science are overly simplified. This wrapper provides access to a curated set of more complex data.
+
 }
 \usage{
 digIt(dataset, download = FALSE, readme = FALSE)
