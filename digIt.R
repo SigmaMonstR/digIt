@@ -11,7 +11,7 @@
   invisible(lapply(needed, require, character.only = TRUE))
 
 # Load in base cache file
-  digit.cache <- import("https://s3.amazonaws.com/whoa-data/digit_index.csv")
+  digit.cache <- import("https://s3.amazonaws.com/dspp/digit_index.csv")
   
 # Function: Get list of data sets
   digList <- function(detail = FALSE){
@@ -49,7 +49,7 @@ digIt <- function(dataset, download = FALSE, readme = FALSE){
   #
   
   #Look up file
-    base.path <- "https://s3.amazonaws.com/whoa-data/"
+    base.path <- "https://s3.amazonaws.com/dspp/"
     index.pos <- grep(dataset, digit.cache$dataset)[1]*1
     
   #Construct URL

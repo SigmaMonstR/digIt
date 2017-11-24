@@ -11,7 +11,7 @@
   invisible(lapply(needed, require, character.only = TRUE))
 
 # Load in base cache file
-  digit.cache <- import("https://s3.amazonaws.com/whoa-data/digit_index.csv")
+  digit.cache <- import("https://s3.amazonaws.com/dspp/digit_index.csv")
   
 # Function: Get list of data sets
   digList <- function(detail = FALSE){
@@ -49,7 +49,7 @@ digIt <- function(dataset, download = FALSE, readme = FALSE){
   #
   
   #Look up file
-    base.path <- "https://s3.amazonaws.com/whoa-data/"
+    base.path <- "https://s3.amazonaws.com/dspp/"
     index.pos <- grep(dataset, digit.cache$dataset)[1]*1
     
   #Construct URL
@@ -103,7 +103,7 @@ digIt <- function(dataset, download = FALSE, readme = FALSE){
         temp.dir <- tempdir()
         unzip(temp.file, exdir = temp.dir)
         shape <- readOGR(dsn = temp.dir, 
-                         layer = "cb_2016_us_cd115_20m")
+                         layer = gsub(".zip","",digit.cache$zip.package[index.pos]))
         message(paste0(dataset, " has been loaded into memory."))
         return(shape)
       }
