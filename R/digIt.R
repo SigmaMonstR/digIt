@@ -104,7 +104,7 @@ digIt <- function(dataset, download = FALSE, readme = FALSE){
         unzip(temp.file, exdir = temp.dir)
         shape <- readOGR(dsn = temp.dir, 
                          layer = gsub(".zip","",digit.cache$zip.package[index.pos]))
-        message(paste0(dataset, " has been loaded into memory."))
+        message(paste0(dataset, " shapefile has been loaded into memory."))
         return(shape)
       }
      

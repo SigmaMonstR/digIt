@@ -103,7 +103,7 @@ digIt <- function(dataset, download = FALSE, readme = FALSE){
         temp.dir <- tempdir()
         unzip(temp.file, exdir = temp.dir)
         shape <- readOGR(dsn = temp.dir, 
-                         layer = "cb_2016_us_cd115_20m")
+                         layer = gsub(".zip","",digit.cache$zip.package[index.pos]))
         message(paste0(dataset, " has been loaded into memory."))
         return(shape)
       }
