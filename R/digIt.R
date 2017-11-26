@@ -5,8 +5,8 @@
 #######################################################
 
 # Libraries required for use
-  needed <- c("DT","rio","rgdal")
-  index <- !(c("DT","rio","rgdal") %in% rownames(installed.packages()))
+  needed <- c("DT","rio","rgdal", "raster")
+  index <- !(needed %in% rownames(installed.packages()))
   if(sum(index) > 0){install.packages(needed[index])} 
   invisible(lapply(needed, require, character.only = TRUE))
 
@@ -106,6 +106,10 @@ digIt <- function(dataset, download = FALSE, readme = FALSE){
                          layer = gsub(".zip","",digit.cache$zip.package[index.pos]))
         message(paste0(dataset, " shapefile has been loaded into memory."))
         return(shape)
+      } else if(load.function == "raster"  && length(index.pos) > 0){
+        temp.file <- tempfile()
+        download.file(download.data, temp.file, quiet = TRUE)
+        return(brick(temp.file))
       }
      
     } 
