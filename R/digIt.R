@@ -107,6 +107,7 @@ digIt <- function(dataset, download = FALSE, readme = FALSE){
         message(paste0(dataset, " shapefile has been loaded into memory."))
         return(shape)
       } else if(load.function == "raster"  && length(index.pos) > 0){
+        library(raster)
         temp.file <- tempfile()
         download.file(download.data, temp.file, quiet = TRUE)
         return(brick(temp.file))
