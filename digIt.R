@@ -47,6 +47,10 @@ digIt <- function(dataset, download = FALSE, readme = FALSE){
   # Returns:
   #   dataset as a local download (download = TRUE) or in R environment (download = FALSE)
   #
+  #Libraries
+  require(raster)
+  require(rgdal)
+  require(rio)
   
   #Look up file
   base.path <- "https://s3.amazonaws.com/dspp/"
