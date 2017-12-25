@@ -71,8 +71,8 @@ digIt <- function(dataset, download = FALSE, readme = FALSE){
   
   #What to do with 
   if(download == TRUE && length(index.pos) > 0){ 
-    download.file(download.zip, getwd())
-    message(paste0(dataset, " has been downloaded to ", getwd()))
+    download.file(download.zip, paste0(getwd(),"/compressed.zip"))
+    message(paste0(dataset, " has been downloaded to ", paste0(getwd(),"/compressed.zip")))
   } else if(download == FALSE && length(index.pos) > 0)  {
     
     if(load.function == "import"){
@@ -92,7 +92,7 @@ digIt <- function(dataset, download = FALSE, readme = FALSE){
       #Return result
       return(df)
     } else  if(load.function == "readLines"){
-      #TABULAR DATA
+      #TEXTUAL DATA
       #Load the data
       df <- readLines(download.data)
       message(paste0(dataset, " has been loaded into memory."))
