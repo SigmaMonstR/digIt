@@ -74,12 +74,29 @@ digIt <- function(dataset, download = FALSE, readme = FALSE){
     download.file(download.zip, getwd())
     message(paste0(dataset, " has been downloaded to ", getwd()))
   } else if(download == FALSE && length(index.pos) > 0)  {
+    
     if(load.function == "import"){
       #TABULAR DATA
       #Load the data
-      df <- import(download.data)
+      df <- rio::import(download.data)
       message(paste0(dataset, " has been loaded into memory."))
       message(paste0("Dimensions: n = ",nrow(df),", k = ", ncol(df)))
+      
+      #Get the readme file
+      if(readme == TRUE){
+        temp.file <- tempfile()
+        download.file(download.readme, temp.file, quiet = TRUE)
+        file.show(temp.file)
+      }
+      
+      #Return result
+      return(df)
+    } else  if(load.function == "readLines"){
+      #TABULAR DATA
+      #Load the data
+      df <- readLines(download.data)
+      message(paste0(dataset, " has been loaded into memory."))
+      message(paste0("Dimensions: # lines = ",length(df)))
       
       #Get the readme file
       if(readme == TRUE){
@@ -106,7 +123,7 @@ digIt <- function(dataset, download = FALSE, readme = FALSE){
       download.file(download.zip, temp.file, quiet = TRUE)
       temp.dir <- tempdir()
       unzip(temp.file, exdir = temp.dir)
-      shape <- readOGR(dsn = temp.dir, 
+      shape <- rgdal::readOGR(dsn = temp.dir, 
                        layer = gsub(".zip","",digit.cache$zip.package[index.pos]))
       message(paste0(dataset, " shapefile has been loaded into memory."))
       return(shape)
@@ -114,7 +131,7 @@ digIt <- function(dataset, download = FALSE, readme = FALSE){
       library(raster)
       temp.file <- tempfile()
       download.file(download.data, temp.file, quiet = TRUE)
-      return(brick(temp.file))
+      return(raster::brick(temp.file))
     }
     
   } 
