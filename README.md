@@ -1,8 +1,18 @@
 # digIt
-A simple R wrapper to dig into new example datasets for data science and statistics. This wrapper set simplifies access to data by loading datasets directly into memory from an AWS repository or downloads a zip file to the working directory.
+A simple R wrapper to dig into new example datasets for data science and statistics. This wrapper set simplifies access to data by loading datasets directly into memory from an AWS repository or downloads a zip file to the working directory. This is a very early version of the wrapper.
 
 ## Dependencies
 Wrapper relies on the `rio`, `DT`, and `rgdal` libraries.
+
+## Install
+
+Install `devtools`, then run the following command:
+
+```r
+library(devtools)
+install_github("SigmaMonstR/digIt", force = TRUE)
+library(digIt)
+```
 
 ## Usage
 
